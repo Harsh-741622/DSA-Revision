@@ -133,3 +133,152 @@ Therefore, *To avoid this we use StringBuilder method where we build a string us
     }
 ```
 
+## 1.4. Pattern Questions : 
+
+```java 
+
+// # 1.4.1. Inverted star pattern :
+
+// ****
+// ***
+// **
+// * 
+
+// # 1.4.2. Half pyramid pattern :
+
+// 1
+// 12
+// 123
+// 1234
+
+// # 1.4.3. Character pattern : 
+
+// A 
+// BC 
+// DEF 
+// GHIJ
+
+// # 1.4.4. Hollow rectangle pattern :
+
+// *****
+// *   *
+// *   *
+// *****
+
+// # 1.4.5. Inverted & rotated half pyramid pattern :
+
+//    *
+//   **
+//  ***
+// ****
+
+// # 1.4.6. Inverted half pyramid with number pattern :
+
+// 12345
+// 1234
+// 123
+// 12
+// 1
+
+// # 1.4.7. Floyd's triangle pattern :
+
+// 1
+// 2 3
+// 4 5 6
+// 7 8 9 10
+// 11 12 13 14 15 
+
+
+    public static void invertedStar(int n) {
+        for (int i = n; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+            }
+            System.out.println(); // For next line
+        }
+        System.out.println(); // This is just to have space in between the different pattern in output.
+    }
+
+    public static void halfPyramid(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void characterPattern(int n){
+        int tracker = 65 ; 
+        for(int i=1 ; i<=n ; i++){
+            for(int j=1 ; j<=i ; j++){
+                System.out.print((char)tracker);
+                tracker ++ ; 
+            }
+            System.out.println();
+        }
+        System.out.println();
+        
+    }
+
+    public static void hollowRectangle(int n){
+        for(int i=1 ; i<=n ; i++){
+            if(i==1 || i==n){ // line 1 and last line forming here
+                for(int j=1 ; j<=n+1 ; j++){
+                    System.out.print("*");
+                }
+            } else { // rest of lines form here 
+                for(int j=1 ; j<=n+1 ; j++){
+                    if(j==1 || j==n+1){ // this is forming first and last column of a line.
+                        System.out.print("*");
+                    } else { // rest of column form here
+                        System.out.print(" ");
+                    }
+                }
+            }
+            System.out.println();
+        }
+
+    public static void invertedRotatedHalfPyramid(int n) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void invertedHalfPyramidWithNumber(int n) {
+        int tracker = 1;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j <= n - i; j++) {
+                System.out.print(tracker);
+                tracker++;
+            }
+            tracker = 1;
+            System.out.println();
+        }
+    }
+
+    public static void floydTriangle(int n) {
+        int tracker = 1;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j <= (2 * i + 1); j++) {
+                if (j % 2 == 0) {
+                    System.out.print(" ");
+                    
+                } else {
+                    System.out.print(tracker);
+                    tracker++;
+                }
+
+            }
+            System.out.println();
+        }
+    }
+```
